@@ -58,6 +58,30 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+		<!--ENTITYDE ONETOMNANY İLİŞKİSİ YAPARKKEN MANY TARAFINA RESTRESOURCE EKLEMEK İÇİN KULLANILDI-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<!--GENERATE UUID ICIN ABSTRACTENTITY CLASSINDA KULLANILDI-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!--GENERATE UUID ICIN UPPERCASEUUIDGENERATOR CLASSINDA KULLANILDI-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
