@@ -1,7 +1,8 @@
-package com.springboot.ecommerceProject.service;
+package com.springboot.ecommerceProject.service.Impl;
 
 import com.springboot.ecommerceProject.model.User;
 import com.springboot.ecommerceProject.repository.UserRepository;
+import com.springboot.ecommerceProject.service.UserService;
 import com.springboot.ecommerceProject.util.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImpl  implements UserService{
+public class UserServiceImpl  implements UserService {
 
     @Autowired
     UserRepository userRepository;
