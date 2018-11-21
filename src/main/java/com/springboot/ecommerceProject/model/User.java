@@ -1,11 +1,12 @@
 package com.springboot.ecommerceProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springboot.ecommerceProject.model.seedwork.AbstractEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "T_USER")
@@ -47,6 +48,8 @@ public class User extends AbstractEntity {
     @Column(name = "updated_date")
     private Date updatedDate;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Product> products = new HashSet<>();
 
     public String getName() {
         return name;
@@ -130,6 +133,14 @@ public class User extends AbstractEntity {
     }
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    @JsonIgnore
+    public Set<Product> getProducts() {
+        return products;
+    }
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
 }
