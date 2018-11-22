@@ -2,6 +2,7 @@ package com.springboot.ecommerceProject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springboot.ecommerceProject.model.productDetails.Car;
+import com.springboot.ecommerceProject.model.productDetails.Estate;
 import com.springboot.ecommerceProject.model.seedwork.AbstractEntity;
 import org.springframework.data.rest.core.annotation.RestResource;
 
@@ -39,8 +40,13 @@ public class Product extends AbstractEntity {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @RestResource(exported = false)
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "car_id", nullable = true)
     private Car car;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @RestResource(exported = false)
+    @JoinColumn(name = "estate_id", nullable = true)
+    private Estate estate;
 
     public String getTitle() {
         return title;
@@ -101,4 +107,11 @@ public class Product extends AbstractEntity {
         this.car = car;
     }
 
+    @Transient
+    public Estate getEstate() {
+        return estate;
+    }
+    public void setEstate(Estate estate) {
+        this.estate = estate;
+    }
 }

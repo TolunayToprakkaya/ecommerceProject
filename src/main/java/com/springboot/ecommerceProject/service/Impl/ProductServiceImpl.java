@@ -6,6 +6,7 @@ import com.springboot.ecommerceProject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,16 +26,19 @@ public class ProductServiceImpl implements ProductService {
         return this.productRepository.findById(id);
     }
 
+    @Transactional
     @Override
     public Product save(Product category) {
         return this.productRepository.save(category);
     }
 
+    @Transactional
     @Override
     public Product update(Product category) {
         return this.productRepository.save(category);
     }
 
+    @Transactional
     @Override
     public void delete(String id) {
         productRepository.deleteById(id);

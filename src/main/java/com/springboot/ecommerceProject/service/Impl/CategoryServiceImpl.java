@@ -6,6 +6,7 @@ import com.springboot.ecommerceProject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,16 +26,19 @@ public class CategoryServiceImpl implements CategoryService {
         return this.categoryRepository.findById(id);
     }
 
+    @Transactional
     @Override
     public Category save(Category category) {
         return this.categoryRepository.save(category);
     }
 
+    @Transactional
     @Override
     public Category update(Category category) {
         return this.categoryRepository.save(category);
     }
 
+    @Transactional
     @Override
     public void delete(String id) {
         categoryRepository.deleteById(id);

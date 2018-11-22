@@ -6,6 +6,7 @@ import com.springboot.ecommerceProject.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,16 +26,19 @@ public class CarServiceImpl implements CarService {
         return this.carRepository.findById(id);
     }
 
+    @Transactional
     @Override
     public Car save(Car car) {
         return this.carRepository.save(car);
     }
 
+    @Transactional
     @Override
     public Car update(Car car) {
         return this.carRepository.save(car);
     }
 
+    @Transactional
     @Override
     public void delete(String id) {
         carRepository.deleteById(id);
