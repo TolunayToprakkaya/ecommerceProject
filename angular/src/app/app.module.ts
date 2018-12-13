@@ -1,21 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { BsDatepickerModule } from "ngx-bootstrap";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
+
 import { AppComponent } from './app.component';
 import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { ProductsComponent } from "./components/products/products.component";
+import { NewProductComponent } from './components/new-product/new-product.component';
+
+import { UserService } from "./services/user.service";
+import { ProductsService } from "./services/products.service";
 import { AuthGuard } from "./auth.guard";
 import { LoginAuthService } from "./services/login-auth.service";
 
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { BsDatepickerModule } from "ngx-bootstrap";
-
-import { UserService } from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -24,17 +28,21 @@ import { UserService } from "./services/user.service";
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    ProductsComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     UserService,
+    ProductsService,
     AuthGuard,
     LoginAuthService
   ],

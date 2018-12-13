@@ -1,0 +1,23 @@
+<div class="row mt-4">
+  <div class="col-2">
+    <ul class="list-group">
+      <li class="list-group-item active">Tüm İlanlar</li>
+      <li class="list-group-item">Emlak</li>
+      <li class="list-group-item">Otomobil</li>
+    </ul>
+  </div>
+
+  <div class="col-2 d-flex align-items-stretch" *ngFor="let product of products">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="http://www.yesilyurtgazete.com/wp-content/uploads/2018/08/141758.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="card-text">{{product.explanation}}</p>
+        <p class="card-text">{{product.category.name}}</p>
+        <p class="card-text">{{product.user.name}}</p>
+        <a href="#" class="btn btn-primary">Detay</a>
+      </div>
+    </div>
+  </div>
+
+</div>

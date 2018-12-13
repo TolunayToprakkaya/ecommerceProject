@@ -26,12 +26,14 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('currentUser', JSON.stringify(response));
           if(response.user.role === 'ADMIN'){
             this.router.navigate(['/admindashboard']);
+            document.location.reload(true);
           }else{
-            this.router.navigate(['/userdashboard']);
+            this.router.navigate(['/products']);
+            document.location.reload(true);
           }
         }
       }
-    })
+    });
   }
 
 }

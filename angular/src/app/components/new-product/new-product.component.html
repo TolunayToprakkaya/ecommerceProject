@@ -1,0 +1,86 @@
+<form #productForm="ngForm">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="product.title" name="title"/>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text" class="form-control" id="price" [(ngModel)]="product.price" name="price"/>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" [(ngModel)]="product.address" name="address"/>
+  </div>
+
+  <div class="form-group">
+    <label for="explanation">Explanation</label>
+    <textarea class="form-control" rows="5" id="explanation" [(ngModel)]="product.explanation" name="explanation"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category {{product.category}}</label>
+    <select class="form-control" id="category"  name="category"  (change)="onCategorySelected($event.target.value)">
+      <option [value]="category.id"  *ngFor="let category of categories">{{category.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mark" id="markLabel" style="display: none;">Mark</label>
+    <input type="text" class="form-control" id="mark" [(ngModel)]="car.mark" name="mark" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="model" id="modelLabel" style="display: none;">Model</label>
+    <input type="text" class="form-control" id="model" [(ngModel)]="car.model" name="model" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="year" id="yearLabel" style="display: none;">Year</label>
+    <input type="text" class="form-control" id="year" [(ngModel)]="car.year" name="year" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="fuel" id="fuelLabel" style="display: none;">Fuel</label>
+    <select class="form-control" id="fuel" [(ngModel)]="car.fuel" name="fuel" style="display: none">
+      <option value="">Select Fuel</option>
+      <option value="Benzin">Benzin</option>
+      <option value="Dizel">Dizel</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="gear" id="gearLabel" style="display: none;">Geal</label>
+    <select class="form-control" id="gear" [(ngModel)]="car.gear" name="gear" style="display: none">
+      <option value="">Select Gear</option>
+      <option value="Manuel">Manuel</option>
+      <option value="Otomatik">Otomatik</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="km" id="kmLabel" style="display: none;">Km</label>
+    <input type="text" class="form-control" id="km" [(ngModel)]="car.km" name="km" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="color" id="colorLabel" style="display: none;">Color</label>
+    <input type="text" class="form-control" id="color" [(ngModel)]="car.color" name="color" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="licensePlate" id="licensePlateLabel" style="display: none;">License Plate</label>
+    <input type="text" class="form-control" id="licensePlate" [(ngModel)]="car.licensePlate" name="licensePlate" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <label for="owner" id="ownerLabel" style="display: none;">Owner</label>
+    <input type="text" class="form-control" id="owner" [(ngModel)]="car.owner" name="owner" style="display: none"/>
+  </div>
+
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="saveCar(car); saveProduct(product, productForm);">Submit</button>
+  </div>
+
+</form>
