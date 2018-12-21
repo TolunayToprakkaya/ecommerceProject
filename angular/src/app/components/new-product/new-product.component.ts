@@ -37,9 +37,13 @@ export class NewProductComponent implements OnInit {
     });
   }
 
-  saveProduct(product:any, productForm:any){
+  saveProduct(product:any, productForm:any, catVal:any){
     product.createDate = new Date();
-    product.user = this.loginuser.user.id;
+    const id = this.loginuser.user.id;
+    product.user = {id};
+    //product.car = {id};
+    //product.estate = {id};
+    this.onCategorySelected(product, catVal);
     this.productService.saveProduct(product).subscribe((response) => {
       //if(response){
         console.log(response);
@@ -48,12 +52,14 @@ export class NewProductComponent implements OnInit {
     })
   }
 
-  saveCar(car:any, productForm:any){
+  saveCar(car:any){
     this.productService.saveCar(car).subscribe();
   }
 
-  onCategorySelected(catVal: any){
+  onCategorySelected(product:any ,catVal: any){
+    var id = catVal;
       if(catVal == "70bfd44a-8581-4ce6-b89f-1f2b4386ee46") {
+        product.category = {id};
         document.getElementById("markLabel").style.display = "block";
         document.getElementById("mark").style.display = "block";
         document.getElementById("modelLabel").style.display = "block";
@@ -74,6 +80,7 @@ export class NewProductComponent implements OnInit {
         document.getElementById("owner").style.display = "block";
       }
      else if(catVal == "1cb22d6e-d095-4b42-90c1-6c3be8ba88fb"){
+        product.category = {id};
         document.getElementById("markLabel").style.display = "none";
         document.getElementById("mark").style.display = "none";
         document.getElementById("modelLabel").style.display = "none";
