@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/estates")
@@ -25,8 +26,8 @@ public class EstateController {
 
     //View
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public void view(@PathVariable String id) {
-        estateService.findOneById(id);
+    public Optional<Estate> view(@PathVariable String id) {
+        return estateService.findOneById(id);
     }
 
     //Save

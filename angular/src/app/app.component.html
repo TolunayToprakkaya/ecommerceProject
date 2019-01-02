@@ -17,6 +17,7 @@
         <a class="nav-link" href="javasript:void(0)" [routerLink]="['/login']" routerLink="router-link-active" *ngIf="!currentstatus.status">Login</a>
         <a class="nav-link" href="javasript:void(0)" [routerLink]="['/products']" *ngIf="currentstatus.status">Products</a>
         <a class="nav-link" href="javasript:void(0)" [routerLink]="['/newProduct']" *ngIf="currentstatus.status">New Product</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/myProducts']" *ngIf="currentstatus.status">My Products</a>
         <a class="nav-link" href="javasript:void(0)" [routerLink]="['/userdashboard']" *ngIf="currentstatus.status">Profile</a>
         <a class="nav-link" href="javasript:void(0)" (click)="logout()" *ngIf="currentstatus.status">Logout</a>
       </form>

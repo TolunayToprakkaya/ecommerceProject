@@ -1,3 +1,4 @@
+/*
 package com.springboot.ecommerceProject.repository;
 
 import com.springboot.ecommerceProject.model.Product;
@@ -7,3 +8,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(path = "products", collectionResourceRel = "products", exported = false)
 public interface ProductRepository extends JpaRepository<Product, String> {
 }
+*/

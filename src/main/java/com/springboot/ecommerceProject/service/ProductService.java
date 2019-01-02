@@ -1,3 +1,4 @@
+/*
 package com.springboot.ecommerceProject.service;
 
 import com.springboot.ecommerceProject.model.Product;
@@ -14,3 +15,4 @@ public interface ProductService {
     void delete(String id);
 
 }
+*/

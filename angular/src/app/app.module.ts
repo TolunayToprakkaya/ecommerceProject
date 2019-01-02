@@ -19,6 +19,11 @@ import { UserService } from "./services/user.service";
 import { ProductsService } from "./services/products.service";
 import { AuthGuard } from "./auth.guard";
 import { LoginAuthService } from "./services/login-auth.service";
+import { CarsComponent } from './components/cars/cars.component';
+import { EstatesComponent } from './components/estates/estates.component';
+import { CarsdetailComponent } from './components/carsdetail/carsdetail.component';
+import { EstatesdetailComponent } from './components/estatesdetail/estatesdetail.component';
+import { MyProductsComponent } from './components/my-products/my-products.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { LoginAuthService } from "./services/login-auth.service";
     SignupComponent,
     UserdashboardComponent,
     ProductsComponent,
-    NewProductComponent
+    NewProductComponent,
+    CarsComponent,
+    EstatesComponent,
+    CarsdetailComponent,
+    EstatesdetailComponent,
+    MyProductsComponent
   ],
   imports: [
     BrowserModule,

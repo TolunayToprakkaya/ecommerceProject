@@ -9,15 +9,20 @@ import { LoginAuthService } from "../../services/login-auth.service";
 })
 export class ProductsComponent implements OnInit {
 
-  products: Array<any>;
+  cars: Array<any>;
+  estates: Array<any>;
 
   constructor(private productService: ProductsService, private authService: LoginAuthService) {
     this.authService.isLoaggedIn();
   }
 
   ngOnInit() {
-    this.productService.products().subscribe(data => {
-      this.products = data;
+    this.productService.getCars().subscribe(data => {
+      this.cars = data;
+    });
+
+    this.productService.getEstates().subscribe(data => {
+      this.estates = data;
     });
   }
 

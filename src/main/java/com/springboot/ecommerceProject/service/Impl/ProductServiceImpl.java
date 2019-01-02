@@ -1,3 +1,4 @@
+/*
 package com.springboot.ecommerceProject.service.Impl;
 
 import com.springboot.ecommerceProject.model.Product;
@@ -44,3 +45,4 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 }
+*/

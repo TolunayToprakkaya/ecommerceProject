@@ -1,6 +1,8 @@
 package com.springboot.ecommerceProject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.springboot.ecommerceProject.model.productDetails.Car;
+import com.springboot.ecommerceProject.model.productDetails.Estate;
 import com.springboot.ecommerceProject.model.seedwork.AbstractEntity;
 
 import javax.persistence.*;
@@ -15,7 +17,10 @@ public class Category extends AbstractEntity{
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
-    private Set<Product> products = new HashSet<>();
+    private Set<Car> cars = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "category")
+    private Set<Estate> estates = new HashSet<>();
 
     public String getName() {
         return name;
@@ -25,11 +30,18 @@ public class Category extends AbstractEntity{
     }
 
     @JsonIgnore
-    public Set<Product> getProducts() {
-        return products;
+    public Set<Car> getCars() {
+        return cars;
     }
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
     }
 
+    @JsonIgnore
+    public Set<Estate> getEstates() {
+        return estates;
+    }
+    public void setEstates(Set<Estate> estates) {
+        this.estates = estates;
+    }
 }

@@ -1,3 +1,4 @@
+/*
 package com.springboot.ecommerceProject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -115,3 +116,4 @@ public class Product extends AbstractEntity {
         this.estate = estate;
     }
 }
+*/

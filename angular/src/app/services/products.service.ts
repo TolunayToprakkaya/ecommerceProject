@@ -20,18 +20,22 @@ export class ProductsService {
     return this.http.get("http://localhost:8080/categories");
   }
 
-  products(): Observable<any> {
-    return this.http.get("http://localhost:8080/products");
+  getCars(): Observable<any> {
+    return this.http.get("http://localhost:8080/cars");
   }
 
-  saveProduct(product:any): Observable<any> {
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post("http://localhost:8080/products", product, {headers: headers});
+  getEstates(): Observable<any> {
+    return this.http.get("http://localhost:8080/estates");
   }
 
   saveCar(car:any): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post("http://localhost:8080/cars", car, {headers: headers});
+  }
+
+  saveEstate(estate:any): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post("http://localhost:8080/estates", estate, {headers: headers});
   }
 
 /*

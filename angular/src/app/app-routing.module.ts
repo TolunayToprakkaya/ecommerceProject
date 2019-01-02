@@ -8,6 +8,11 @@ import {UserdashboardComponent} from "./components/userdashboard/userdashboard.c
 import { AuthGuard } from "./auth.guard";
 import {ProductsComponent} from "./components/products/products.component";
 import {NewProductComponent} from "./components/new-product/new-product.component";
+import {CarsComponent} from "./components/cars/cars.component";
+import {EstatesComponent} from "./components/estates/estates.component";
+import {EstatesdetailComponent} from "./components/estatesdetail/estatesdetail.component";
+import {CarsdetailComponent} from "./components/carsdetail/carsdetail.component";
+import {MyProductsComponent} from "./components/my-products/my-products.component";
 
 const routes: Routes = [
 
@@ -17,7 +22,12 @@ const routes: Routes = [
   { path: 'admindashboard', component: AdmindashboardComponent, canActivate: [AuthGuard]},
   { path: 'userdashboard', component: UserdashboardComponent, canActivate: [AuthGuard]},
   { path: 'products', component: ProductsComponent , canActivate: [AuthGuard]},
+  { path: 'cars', component: CarsComponent , canActivate: [AuthGuard]},
+  { path: 'estates', component: EstatesComponent , canActivate: [AuthGuard]},
   { path: 'newProduct', component: NewProductComponent , canActivate: [AuthGuard]},
+  { path: 'myProducts', component: MyProductsComponent , canActivate: [AuthGuard]},
+  { path: 'estates/:id', component: EstatesdetailComponent , canActivate: [AuthGuard]},
+  { path: 'cars/:id', component: CarsdetailComponent , canActivate: [AuthGuard]},
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 

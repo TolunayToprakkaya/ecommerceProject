@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cars")
@@ -25,8 +26,8 @@ public class CarController {
 
     //View
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public void view(@PathVariable String id){
-        carService.findOneById(id);
+    public Optional<Car> view(@PathVariable String id){
+        return carService.findOneById(id);
     }
 
     //Save

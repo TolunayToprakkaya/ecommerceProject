@@ -1,7 +1,9 @@
 package com.springboot.ecommerceProject.model.productDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.springboot.ecommerceProject.model.Product;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.springboot.ecommerceProject.model.Category;
+//import com.springboot.ecommerceProject.model.Product;
+import com.springboot.ecommerceProject.model.User;
 import com.springboot.ecommerceProject.model.seedwork.AbstractEntity;
 import org.springframework.data.rest.core.annotation.RestResource;
 
@@ -11,6 +13,21 @@ import java.util.Date;
 @Entity
 @Table(name = "T_CAR")
 public class Car extends AbstractEntity {
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "price")
+    private String price;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "explanation")
+    private String explanation;
+
+    @Column(name = "create_date")
+    private Date createDate;
 
     @Column(name = "mark")
     private String mark;
@@ -38,10 +55,54 @@ public class Car extends AbstractEntity {
 
     @Column(name = "owner")
     private String owner;
-
+/*
     @OneToOne(mappedBy = "car")
     private Product product;
+*/
+    @ManyToOne
+    @RestResource(exported = false)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
+    @ManyToOne
+    @RestResource(exported = false)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getExplanation() {
+        return explanation;
+    }
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     public String getMark() {
         return mark;
@@ -105,12 +166,28 @@ public class Car extends AbstractEntity {
     public void setOwner(String owner) {
         this.owner = owner;
     }
-
+/*
     @JsonIgnore
     public Product getProduct() {
         return product;
     }
     public void setProduct(Product product) {
         this.product = product;
+    }
+*/
+    @Transient
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    @Transient
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 }
