@@ -1,5 +1,6 @@
 package com.springboot.ecommerceProject.service.Impl;
 
+import com.springboot.ecommerceProject.model.User;
 import com.springboot.ecommerceProject.model.productDetails.Car;
 import com.springboot.ecommerceProject.repository.productDetails.CarRepository;
 import com.springboot.ecommerceProject.service.CarService;
@@ -24,6 +25,11 @@ public class CarServiceImpl implements CarService {
     @Override
     public Optional<Car> findOneById(String id) {
         return this.carRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Car> findByUserIdService(String id) {
+        return this.carRepository.findByUserId(id);
     }
 
     @Transactional

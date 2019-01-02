@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -35,4 +36,5 @@ public class UserServiceImpl  implements UserService {
     public User getUserByEmail(String email) {
         return userRepository.findByEmailIgnoreCase(email);
     }
+
 }

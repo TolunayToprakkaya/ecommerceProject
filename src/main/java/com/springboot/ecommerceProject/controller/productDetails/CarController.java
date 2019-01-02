@@ -1,5 +1,6 @@
 package com.springboot.ecommerceProject.controller.productDetails;
 
+import com.springboot.ecommerceProject.model.User;
 import com.springboot.ecommerceProject.model.productDetails.Car;
 import com.springboot.ecommerceProject.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class CarController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<Car> view(@PathVariable String id){
         return carService.findOneById(id);
+    }
+
+    //MyProducts
+    @RequestMapping(value = "/myProducts/{id}", method = RequestMethod.GET)
+    public Optional<Car> myProducts(@PathVariable String id) {
+        return carService.findByUserIdService(id);
     }
 
     //Save

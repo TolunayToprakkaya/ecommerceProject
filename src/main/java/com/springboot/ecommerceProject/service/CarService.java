@@ -1,5 +1,6 @@
 package com.springboot.ecommerceProject.service;
 
+import com.springboot.ecommerceProject.model.User;
 import com.springboot.ecommerceProject.model.productDetails.Car;
 
 import java.util.List;
@@ -9,6 +10,7 @@ public interface CarService {
 
     List<Car> findAll();
     Optional<Car> findOneById(String id);
+    Optional<Car> findByUserIdService(String id);
     Car save(Car car);
     Car update(Car car);
     void delete(String id);
