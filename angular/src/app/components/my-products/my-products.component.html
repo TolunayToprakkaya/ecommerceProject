@@ -1,23 +1,115 @@
-<div class="col-2 d-flex align-items-stretch" *ngFor="let car of cars">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="http://www.yesilyurtgazete.com/wp-content/uploads/2018/08/141758.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{car.title}}</h5>
-      <p class="card-text">{{car.explanation}}</p>
-      <p class="card-text">{{car.user.name}}</p>
-      <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Detay</a>
-    </div>
-  </div>
-</div>
+<div class="container-fluid">
+  <div class="row">
 
-<div class="col-2 d-flex align-items-stretch" *ngFor="let estate of estates">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="http://www.yesilyurtgazete.com/wp-content/uploads/2018/08/141758.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{estate.title}}</h5>
-      <p class="card-text">{{estate.explanation}}</p>
-      <p class="card-text">{{estate.user.name}}</p>
-      <a [routerLink]="['/estates/'+estate.id]" class="btn btn-primary">Detay</a>
+    <div class="col-md-12">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="category"  name="category" (change)="onCategorySelected($event.target.value)">
+            <option disabled>Select Category</option>
+            <option [value]="category.id"  *ngFor="let category of categories">{{category.name}}</option>
+          </select>
+        </div>
+      </form>
     </div>
+
+    <div class="col-md-12" id="carList" style="display: none;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Address</th>
+            <th scope="col">Explanation</th>
+            <th scope="col">Create Date</th>
+            <th scope="col">Mark</th>
+            <th scope="col">Model</th>
+            <th scope="col">Year</th>
+            <th scope="col">Fuel</th>
+            <th scope="col">Gear</th>
+            <th scope="col">Km</th>
+            <th scope="col">Color</th>
+            <th scope="col">License Plate</th>
+            <th scope="col">Owner</th>
+            <th scope="col">User</th>
+            <th scope="col">Action</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{car.title}}</td>
+            <td>{{car.price}}</td>
+            <td>{{car.address}}</td>
+            <td>{{car.explanation}}</td>
+            <td>{{car.createDate}}</td>
+            <td>{{car.mark}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.fuel}}</td>
+            <td>{{car.gear}}</td>
+            <td>{{car.km}}</td>
+            <td>{{car.color}}</td>
+            <td>{{car.licensePlate}}</td>
+            <td>{{car.owner}}</td>
+            <td>{{car.user.name}}</td>
+            <td>
+              <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Detay</a>
+              <button type="button" class="btn btn-success" (click)="updateCar(car.id)"><a>Düzenle</a></button>
+              <button type="button" class="btn btn-danger" (click)="deleteCar(car.id)"><a>Sil</a></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-12" id="estateList" style="display: none;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Address</th>
+            <th scope="col">Explanation</th>
+            <th scope="col">Create Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">M2</th>
+            <th scope="col">Room Count</th>
+            <th scope="col">Build Age</th>
+            <th scope="col">Floor</th>
+            <th scope="col">Heating</th>
+            <th scope="col">Bathroom Count</th>
+            <th scope="col">Balcony</th>
+            <th scope="col">Owner</th>
+            <th scope="col">User</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estate of estates">
+            <td>{{estate.title}}</td>
+            <td>{{estate.price}}</td>
+            <td>{{estate.address}}</td>
+            <td>{{estate.explanation}}</td>
+            <td>{{estate.createDate}}</td>
+            <td>{{estate.type}}</td>
+            <td>{{estate.m2}}</td>
+            <td>{{estate.roomCount}}</td>
+            <td>{{estate.buildAge}}</td>
+            <td>{{estate.floor}}</td>
+            <td>{{estate.heating}}</td>
+            <td>{{estate.bathroomCount}}</td>
+            <td>{{estate.balcony}}</td>
+            <td>{{estate.owner}}</td>
+            <td>{{estate.user.name}}</td>
+            <td>
+              <a [routerLink]="['/estates', estate.id]" class="btn btn-primary">Detay</a>
+              <button type="button" class="btn btn-success" (click)="updateEstate(estate.id)"><a>Düzenle</a></button>
+              <button type="button" class="btn btn-danger" (click)="deleteEstate(estate.id)"><a>Sil</a></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>

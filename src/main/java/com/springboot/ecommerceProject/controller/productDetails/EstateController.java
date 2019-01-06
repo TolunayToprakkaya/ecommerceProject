@@ -30,6 +30,12 @@ public class EstateController {
         return estateService.findOneById(id);
     }
 
+    //MyProducts
+    @RequestMapping(value = "/myProducts/{id}", method = RequestMethod.GET)
+    public List<Estate> myProducts(@PathVariable String id) {
+        return estateService.findByUserIdService(id);
+    }
+
     //Save
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void save(@RequestBody Estate estate) {

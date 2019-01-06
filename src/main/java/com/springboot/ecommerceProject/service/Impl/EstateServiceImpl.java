@@ -26,6 +26,11 @@ public class EstateServiceImpl implements EstateService {
         return this.estateRepository.findById(id);
     }
 
+    @Override
+    public List<Estate> findByUserIdService(String id) {
+        return this.estateRepository.findByUserId(id);
+    }
+
     @Transactional
     @Override
     public Estate save(Estate estate) {

@@ -28,7 +28,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Optional<Car> findByUserIdService(String id) {
+    public List<Car> findByUserIdService(String id) {
         return this.carRepository.findByUserId(id);
     }
 

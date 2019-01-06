@@ -33,7 +33,7 @@ public class CarController {
 
     //MyProducts
     @RequestMapping(value = "/myProducts/{id}", method = RequestMethod.GET)
-    public Optional<Car> myProducts(@PathVariable String id) {
+    public List<Car> myProducts(@PathVariable String id) {
         return carService.findByUserIdService(id);
     }
 
