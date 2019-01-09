@@ -33,12 +33,9 @@ export class MyProductsComponent implements OnInit {
   }
 
   updateCar = function (id) {
-    alert("Update Car")
+    alert("Update Car");
   };
 
-  updateEstate = function (id) {
-    alert("Update Car")
-  };
 
   private headers = new Headers({'Content-Type': 'application/json'});
   deleteCar = function (id) {

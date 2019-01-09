@@ -14,16 +14,18 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { ProductsComponent } from "./components/products/products.component";
 import { NewProductComponent } from './components/new-product/new-product.component';
-
-import { UserService } from "./services/user.service";
-import { ProductsService } from "./services/products.service";
-import { AuthGuard } from "./auth.guard";
-import { LoginAuthService } from "./services/login-auth.service";
 import { CarsComponent } from './components/cars/cars.component';
 import { EstatesComponent } from './components/estates/estates.component';
 import { CarsdetailComponent } from './components/carsdetail/carsdetail.component';
 import { EstatesdetailComponent } from './components/estatesdetail/estatesdetail.component';
 import { MyProductsComponent } from './components/my-products/my-products.component';
+import { CarupdateComponent } from './components/carupdate/carupdate.component';
+
+import { UserService } from "./services/user.service";
+import { ProductsService } from "./services/products.service";
+import { AuthGuard } from "./auth.guard";
+import { LoginAuthService } from "./services/login-auth.service";
+import { EstateupdateComponent } from './components/estateupdate/estateupdate.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
     EstatesComponent,
     CarsdetailComponent,
     EstatesdetailComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    CarupdateComponent,
+    EstateupdateComponent
   ],
   imports: [
     BrowserModule,

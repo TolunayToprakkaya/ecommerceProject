@@ -54,7 +54,7 @@
             <td>{{car.user.name}}</td>
             <td>
               <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Detay</a>
-              <button type="button" class="btn btn-success" (click)="updateCar(car.id)"><a>Düzenle</a></button>
+              <a [routerLink]="['/cars/update', car.id]" class="btn btn-success">Düzenle</a>
               <button type="button" class="btn btn-danger" (click)="deleteCar(car.id)"><a>Sil</a></button>
             </td>
           </tr>
@@ -103,7 +103,7 @@
             <td>{{estate.user.name}}</td>
             <td>
               <a [routerLink]="['/estates', estate.id]" class="btn btn-primary">Detay</a>
-              <button type="button" class="btn btn-success" (click)="updateEstate(estate.id)"><a>Düzenle</a></button>
+              <a [routerLink]="['/estates/update', estate.id]" class="btn btn-success">Düzenle</a>
               <button type="button" class="btn btn-danger" (click)="deleteEstate(estate.id)"><a>Sil</a></button>
             </td>
           </tr>

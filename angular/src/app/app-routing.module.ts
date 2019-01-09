@@ -13,6 +13,8 @@ import {EstatesComponent} from "./components/estates/estates.component";
 import {EstatesdetailComponent} from "./components/estatesdetail/estatesdetail.component";
 import {CarsdetailComponent} from "./components/carsdetail/carsdetail.component";
 import {MyProductsComponent} from "./components/my-products/my-products.component";
+import {CarupdateComponent} from "./components/carupdate/carupdate.component";
+import {EstateupdateComponent} from "./components/estateupdate/estateupdate.component";
 
 const routes: Routes = [
 
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'cars/myProducts/:id', component: MyProductsComponent , canActivate: [AuthGuard]},
   { path: 'estates/:id', component: EstatesdetailComponent , canActivate: [AuthGuard]},
   { path: 'cars/:id', component: CarsdetailComponent , canActivate: [AuthGuard]},
+  { path: 'estates/update/:id', component: EstateupdateComponent , canActivate: [AuthGuard]},
+  { path: 'cars/update/:id', component: CarupdateComponent , canActivate: [AuthGuard]},
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 

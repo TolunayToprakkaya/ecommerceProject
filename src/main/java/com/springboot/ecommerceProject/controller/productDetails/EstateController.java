@@ -43,7 +43,7 @@ public class EstateController {
     }
 
     //Update
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public void update(@RequestBody Estate estate) {
         estateService.update(estate);
     }
