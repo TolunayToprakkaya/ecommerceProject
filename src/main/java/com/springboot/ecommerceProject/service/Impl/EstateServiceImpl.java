@@ -31,6 +31,11 @@ public class EstateServiceImpl implements EstateService {
         return this.estateRepository.findByUserId(id);
     }
 
+    @Override
+    public List<Estate> findByTitleIgnoreCaseContainingService(String title) {
+        return this.estateRepository.findByTitleIgnoreCaseContaining(title);
+    }
+
     @Transactional
     @Override
     public Estate save(Estate estate) {

@@ -32,6 +32,11 @@ public class CarServiceImpl implements CarService {
         return this.carRepository.findByUserId(id);
     }
 
+    @Override
+    public List<Car> findByTitleIgnoreCaseContainingService(String title) {
+        return this.carRepository.findByTitleIgnoreCaseContaining(title);
+    }
+
     @Transactional
     @Override
     public Car save(Car car) {

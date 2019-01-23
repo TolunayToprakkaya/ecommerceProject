@@ -18,11 +18,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getCars().subscribe(data => {
-      this.cars = data;
+      for(let i=1 ; i<=data.length ; i++){
+        this.cars = data;
+      }
     });
 
     this.productService.getEstates().subscribe(data => {
-      this.estates = data;
+      for(let i=1 ; i<=data.length ; i++){
+        this.estates = data;
+      }
     });
   }
 

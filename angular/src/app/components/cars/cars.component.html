@@ -1,22 +1,31 @@
 <div class="row mt-4">
   <div class="col-2">
     <div class="list-group">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="searchProduct" aria-label="Search" style="margin-bottom: 20px;">
       <a [routerLink]="['/products']" class="list-group-item list-group-item-action">Tüm İlanlar</a>
       <a [routerLink]="['/cars']" class="list-group-item list-group-item-action active">Otomobil</a>
       <a [routerLink]="['/estates']" class="list-group-item list-group-item-action">Emlak</a>
     </div>
   </div>
 
-  <div class="col-2 d-flex align-items-stretch" *ngFor="let car of cars">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="http://www.yesilyurtgazete.com/wp-content/uploads/2018/08/141758.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{car.title}}</h5>
-        <p class="card-text">{{car.explanation}}</p>
-        <p class="card-text">{{car.user.name}}</p>
-        <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Detay</a>
+  <div class="col-10">
+    <div class="row">
+      <div class="col-2 d-flex align-items-stretch" *ngFor="let car of cars | filterdata: searchProduct: 'title' | paginate: {itemsPerPage: 5, currentPage: p}">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="http://www.yesilyurtgazete.com/wp-content/uploads/2018/08/141758.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{car.title}}</h5>
+            <p class="card-text">{{car.explanation}}</p>
+            <p class="card-text">{{car.user.name}}</p>
+            <a [routerLink]="['/cars', car.id]" class="btn btn-primary">Detay</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+</div>
+
+<div class="col-12 justify-content-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

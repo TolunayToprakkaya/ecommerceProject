@@ -17,7 +17,9 @@ export class CarsComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getCars().subscribe(data => {
-      this.cars = data;
+      for(let i=1 ; i<=data.length ; i++){
+        this.cars = data;
+      }
     });
   }
 

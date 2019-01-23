@@ -37,6 +37,12 @@ public class CarController {
         return carService.findByUserIdService(id);
     }
 
+    //Search By Title
+    @RequestMapping(value = "/search/{title}", method = RequestMethod.GET)
+    public List<Car> search(@PathVariable String title){
+        return carService.findByTitleIgnoreCaseContainingService(title);
+    }
+
     //Save
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void save(@RequestBody Car car) {

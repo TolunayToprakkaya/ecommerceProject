@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BsDatepickerModule } from "ngx-bootstrap";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { NgxPaginationModule } from "ngx-pagination";
 
 import { AppComponent } from './app.component';
 import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
@@ -20,6 +21,7 @@ import { CarsdetailComponent } from './components/carsdetail/carsdetail.componen
 import { EstatesdetailComponent } from './components/estatesdetail/estatesdetail.component';
 import { MyProductsComponent } from './components/my-products/my-products.component';
 import { CarupdateComponent } from './components/carupdate/carupdate.component';
+import { FilterdataPipe } from './filterdata.pipe';
 
 import { UserService } from "./services/user.service";
 import { ProductsService } from "./services/products.service";
@@ -44,7 +46,8 @@ import { EstateupdateComponent } from './components/estateupdate/estateupdate.co
     EstatesdetailComponent,
     MyProductsComponent,
     CarupdateComponent,
-    EstateupdateComponent
+    EstateupdateComponent,
+    FilterdataPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { EstateupdateComponent } from './components/estateupdate/estateupdate.co
     HttpClientModule,
     BsDatepickerModule.forRoot(),
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [
     UserService,

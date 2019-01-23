@@ -17,7 +17,9 @@ export class EstatesComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getEstates().subscribe(data => {
-      this.estates = data;
+      for(let i=1 ; i<=data.length ; i++){
+        this.estates = data;
+      }
     });
   }
 

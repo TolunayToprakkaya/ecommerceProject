@@ -36,6 +36,12 @@ public class EstateController {
         return estateService.findByUserIdService(id);
     }
 
+    //Search By Title
+    @RequestMapping(value = "/search/{title}", method = RequestMethod.GET)
+    public List<Estate> search(@PathVariable String title){
+        return estateService.findByTitleIgnoreCaseContainingService(title);
+    }
+
     //Save
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void save(@RequestBody Estate estate) {

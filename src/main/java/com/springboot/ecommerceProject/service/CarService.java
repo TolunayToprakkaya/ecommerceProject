@@ -11,6 +11,7 @@ public interface CarService {
     List<Car> findAll();
     Optional<Car> findOneById(String id);
     List<Car> findByUserIdService(String id);
+    List<Car> findByTitleIgnoreCaseContainingService(String title);
     Car save(Car car);
     Car update(Car car);
     void delete(String id);

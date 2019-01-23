@@ -10,17 +10,22 @@
 
       </ul>
       <span class="navbar-text" *ngIf="currentstatus.status">
-        Name: {{user.name}}
+        Name: {{user.name}} <br/>
       </span>
       <form class="form-inline my-2 my-lg-0">
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/signup']" routerLink="router-link-active" *ngIf="!currentstatus.status">Sign Up</a>
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/login']" routerLink="router-link-active" *ngIf="!currentstatus.status">Login</a>
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/products']" *ngIf="currentstatus.status">Products</a>
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/newProduct']" *ngIf="currentstatus.status">New Product</a>
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/cars/myProducts/'+user.id]" *ngIf="currentstatus.status">My Products</a>
-        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/userdashboard']" *ngIf="currentstatus.status">Profile</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/signup']" routerLinkActive="active" *ngIf="!currentstatus.status">Sign Up</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!currentstatus.status">Login</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/products']" routerLinkActive="active" *ngIf="currentstatus.status">Products</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/newProduct']" routerLinkActive="active" *ngIf="currentstatus.status">New Product</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/cars/myProducts/'+user.id]" routerLinkActive="active" *ngIf="currentstatus.status">My Products</a>
+        <a class="nav-link" href="javasript:void(0)" [routerLink]="['/userdashboard']" routerLinkActive="active" *ngIf="currentstatus.status">Profile</a>
         <a class="nav-link" href="javasript:void(0)" (click)="logout()" *ngIf="currentstatus.status">Logout</a>
       </form>
+      <!--
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="searchProduct" aria-label="Search">
+      </form>
+      -->
     </div>
   </nav>
   <router-outlet></router-outlet>
