@@ -22,9 +22,14 @@
     <input type="text" class="form-control" id="carAddress" [(ngModel)]="car.address" name="carAddress"  style="display: none"/>
   </div>
 
-  <div class="form-group" id="carExplanationLabel" style="display: none;">
-    <label for="carExplanation">Explanation</label>
+  <div class="form-group">
+    <label for="carExplanation" id="carExplanationLabel" style="display: none;">Explanation</label>
     <textarea class="form-control" rows="5" id="carExplanation" [(ngModel)]="car.explanation" name="carExplanation"  style="display: none"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="carImage" id="carImageLabel" style="display: none;">Image</label>
+    <input type="file" class="form-control" id="carImage" accept="image/*" (change)="onSelectFile($event)" name="carImage" style="height: 100%; display: none;" multiple>
   </div>
 
   <div class="form-group">

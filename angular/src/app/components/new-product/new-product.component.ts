@@ -18,6 +18,8 @@ export class NewProductComponent implements OnInit {
   public estate: any = {};
   //Category Dropdownu İçin
   categories: Array<any>;
+  //File Upload
+  public userFile: any = File;
 
   constructor(private productService: ProductsService, private authService: LoginAuthService) {
     //Security İçin
@@ -65,6 +67,7 @@ export class NewProductComponent implements OnInit {
 
   saveEstate(car:any, estate:any,productForm:any, catVal:any){
     estate.createDate = new Date();
+    //this.onSelectFile(event);
     const id = this.loginuser.user.id;
     estate.user = {id};
     this.onCategorySelected(car, estate,catVal);
@@ -72,6 +75,11 @@ export class NewProductComponent implements OnInit {
       console.log(response);
       productForm.reset();
     });
+  }
+
+  onSelectFile(event){
+    const file = event.target.files[0];
+    this.userFile = file;
   }
 
   onCategorySelected(car:any, estate:any ,catVal: any){
@@ -111,6 +119,8 @@ export class NewProductComponent implements OnInit {
         document.getElementById("carAddress").style.display = "block";
         document.getElementById("carExplanationLabel").style.display = "block";
         document.getElementById("carExplanation").style.display = "block";
+        document.getElementById("carImageLabel").style.display = "block";
+        document.getElementById("carImage").style.display = "block";
         document.getElementById("markLabel").style.display = "block";
         document.getElementById("mark").style.display = "block";
         document.getElementById("modelLabel").style.display = "block";
@@ -168,6 +178,8 @@ export class NewProductComponent implements OnInit {
         document.getElementById("carAddress").style.display = "none";
         document.getElementById("carExplanationLabel").style.display = "none";
         document.getElementById("carExplanation").style.display = "none";
+        document.getElementById("carImageLabel").style.display = "none";
+        document.getElementById("carImage").style.display = "none";
         document.getElementById("markLabel").style.display = "none";
         document.getElementById("mark").style.display = "none";
         document.getElementById("modelLabel").style.display = "none";
